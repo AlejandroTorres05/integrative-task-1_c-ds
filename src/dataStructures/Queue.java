@@ -1,4 +1,4 @@
 package dataStructures;
 
-public class NodeTest {
+public class Queue {
 }

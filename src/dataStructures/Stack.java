@@ -2,6 +2,14 @@ package dataStructures;
 
 import java.util.EmptyStackException;
 
+/**
+ * This class is a stack that follows the Stack behavior.
+ * For that this class implements StackInterface
+ * @author Alejandro Torres
+ * @author Alejandro Amu
+ * @see StackInterface
+ * @since 18.0
+ * */
 public class Stack <E> implements StackInterface<E>  {
 
     private Node<E> top;
@@ -12,8 +20,8 @@ public class Stack <E> implements StackInterface<E>  {
      * @return the boolean value true if the Stack doesn't have
      * elements or the boolean value false if the Stack has
      * elements
-     * Pre: There must be a Stack instanced
-     * Post: It returns a boolean
+     * @Pre: There must be a Stack instanced
+     * @Post: It returns a boolean
      * */
     @Override
     public boolean isEmpty() {
@@ -31,8 +39,8 @@ public class Stack <E> implements StackInterface<E>  {
      * @param item is the value that a user wants to save in the Stack and
      *             item will be from the class with the user instances this
      *             data structure
-     * Pre: There must be a Stack instanced on the system
-     * Post: The Stack will have one item more
+     * @Pre: There must be a Stack instanced on the system
+     * @Post: The Stack will have one item more
      * */
     @Override
     public void push(E item) {
@@ -51,8 +59,8 @@ public class Stack <E> implements StackInterface<E>  {
     /**
      * This method gives to user the item that is on the limit
      * @return this.top, if there is a top. Else throws EmptyStackException
-     * Pre: There must be a Stack instanced in the system
-     * Post: It returns the data top or trows EmptyStackException
+     * @Pre: There must be a Stack instanced in the system
+     * @Post: It returns the data top or trows EmptyStackException
      * */
     @Override
     public E top() throws EmptyStackException {
@@ -70,8 +78,8 @@ public class Stack <E> implements StackInterface<E>  {
      * @return this.top element from the class which user instanced
      * the Stack or throws EmptyStackException, if there aren't
      * elements saved
-     * Pre: There must be a Stack instanced in the system
-     * Post: It returns the data top or trows EmptyStackException
+     * @Pre: There must be a Stack instanced in the system
+     * @Post: It returns the data top or trows EmptyStackException
      * */
     @Override
     public E pop() throws EmptyStackException {

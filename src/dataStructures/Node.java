@@ -1,5 +1,10 @@
 package dataStructures;
-
+/**
+ * This class will be used to support
+ * Queue and Stack classes and each Node
+ * will contain the element saved in any
+ * of the mentioned data structures
+ * */
 public class Node<E>
         implements NodeInterface<E>{
 
@@ -11,7 +16,7 @@ public class Node<E>
      * This constructor instances a new Node without
      * references to next and previous Node.
      * @param data will be from the type entered to the new Node
-     * Post: The system will create a new Node.
+     * @Post: The system will create a new Node.
      * */
     public Node(E data) {
         this.data = data;
@@ -20,8 +25,8 @@ public class Node<E>
     /**
      * This method returns the data object.
      * @return data from the type entered when the Node was instanced
-     * Pre: There must be a Node created
-     * Post: The Node return the data object
+     * @Pre: There must be a Node created
+     * @Post: The Node return the data object
      * */
     @Override
     public E getData() {
@@ -31,8 +36,8 @@ public class Node<E>
     /**
      * This method returns the next linked Node.
      * @return next from Node
-     * Pre: There must be a Node created with a next linked Node
-     * Post: The Node return the next Node
+     * @Pre: There must be a Node created with a next linked Node
+     * @Post: The Node return the next Node
      * */
     @Override
     public Node<E> getNext() {
@@ -43,8 +48,8 @@ public class Node<E>
      * This method changes the next linked Node with the
      * Node entered
      * @param newNext will be the new next linked Node
-     * Pre: There must be the two Nodes instanced
-     * Post: The Node will have a new next Node
+     * @Pre: There must be the two Nodes instanced
+     * @Post: The Node will have a new next Node
      * */
     @Override
     public void setNext(Node<E> newNext) {
@@ -54,8 +59,8 @@ public class Node<E>
     /**
      * This method returns the previous linked Node.
      * @return next from Node
-     * Pre: There must be a Node created with a previous linked Node
-     * Post: The Node return the next Node
+     * @Pre: There must be a Node created with a previous linked Node
+     * @Post: The Node return the next Node
      * */
     @Override
     public Node<E> getPrevious() {
@@ -66,8 +71,8 @@ public class Node<E>
      * This method changes the previous linked Node with the
      * Node entered
      * @param newPrev will be the new linked previous Node
-     * Pre: There must be the two Nodes instanced
-     * Post: The Node will have a new previous Node
+     * @Pre: There must be the two Nodes instanced
+     * @Post: The Node will have a new previous Node
      * */
     @Override
     public void setPrevious(Node<E> newPrev) {
