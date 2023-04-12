@@ -1,2 +1,7 @@
-package model;public class Controller {
+package model;
+
+public class Controller {
+    PassengerList passengerList = new PassengerList();
+
+
 }
