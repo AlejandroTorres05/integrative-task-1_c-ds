@@ -9,7 +9,7 @@ import java.util.Arrays;
 public class PassengerList {
 
     static String folder = "dataBase";
-    static String path = "dataBase/orders.txt";
+    static String path = "dataBase/passengers.txt";
     ArrayList<Passenger> passengers;
 
     public PassengerList() {
@@ -47,7 +47,6 @@ public class PassengerList {
             while ((line = reader.readLine()) != null) {
                 content += line + "\n";
             }
-            //System.out.println(content);
             Gson gson = new Gson();
             Passenger[] array = gson.fromJson(content, Passenger[].class);
             passengers.addAll(Arrays.asList(array));
