@@ -15,6 +15,11 @@ public class Stack <E> implements StackInterface<E>  {
     private Node<E> top;
 
     /**
+     * This class must use the constructor inherited
+     * from superClass Object
+     * */
+
+    /**
      * This method returns a boolean that indicates if
      * a Stack have elements or not
      * @return the boolean value true if the Stack doesn't have

@@ -2,6 +2,10 @@ package dataStructures;
 
 import java.util.EmptyStackException;
 
+/**
+ * This interface has the Stack behavior
+ */
+
 public interface StackInterface <T> {
 
     /**
