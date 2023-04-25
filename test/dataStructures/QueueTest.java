@@ -1,5 +1,6 @@
 package dataStructures;
 
+import Exceptions.EmptyQueueException;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -179,6 +180,64 @@ public class QueueTest {
         assertEquals("hello", word);
     }
 
+    /**
+     * This method uses the setupStage2, makes
+     * some changes in the setup. For example,
+     * the method deQueues two elements and uses
+     * an assertion to verify if the method really
+     * works
+     * */
     @Test
-    public void deQueueMethodequeue
+    public void deQueueMethodDequeuesCorrectlyAElementOfTheStructureTest (){
+
+        setupStage2();
+
+        this.words.deQueue();
+        this.words.deQueue();
+        this.words.deQueue();
+
+        assertEquals("o", this.words.front());
+    }
+
+    /**
+     * This method uses the setupStage2
+     * because this stage has a Queue with
+     * five elements. After, the method
+     * deQueue all elements saved in the structure.
+     * Finally, check if the Queue really is empty
+     * using an assertion
+     * */
+    @Test
+    public void deQueueMethodCanMakeCorrectlyAnEmptyQueueTest (){
+
+        setupStage2();
+
+        this.words.deQueue();
+        this.words.deQueue();
+        this.words.deQueue();
+        this.words.deQueue();
+        this.words.deQueue();
+
+        assertTrue(this.words.isEmpty());
+    }
+
+    /**
+     * This method uses the setupStage3 because this
+     * stage has two empty Queues. The method uses an
+     * assertion to verify if the method really can
+     * throw the EmptyQueueException Exception
+     */
+    @Test
+    public void deQueueMethodCanThrowEmptyQueueExceptionExceptionTest (){
+
+        setupStage3();
+
+        assertThrows(EmptyQueueException.class, ()->{
+            this.words.deQueue();
+        });
+
+        assertThrows(EmptyQueueException.class, ()->{
+            this.numbers.deQueue();
+        });
+    }
 }

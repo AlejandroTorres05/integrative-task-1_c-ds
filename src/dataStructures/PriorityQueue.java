@@ -30,7 +30,7 @@ public class PriorityQueue<K extends Comparable<K>, V>
     /**
      * This constructor makes a void heap
      * */
-    public PriorityQueue(int size, int heapSize) {
+    public PriorityQueue(int size) {
         this.size = size;
         this.heapSize = -1;
         this.array = (Pair<K, V>[]) new Object[size];
