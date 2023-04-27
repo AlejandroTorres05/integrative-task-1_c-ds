@@ -5,9 +5,11 @@ import com.google.gson.Gson;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import dataStructures.HashTable;
 
 public class PassengerList {
 
+    public static HashTable<String, Passenger> hashtable = new HashTable<>();
     static String folder = "dataBase";
     static String path = "dataBase/passengers.txt";
     ArrayList<Passenger> passengers;
@@ -50,6 +52,11 @@ public class PassengerList {
             Gson gson = new Gson();
             Passenger[] array = gson.fromJson(content, Passenger[].class);
             passengers.addAll(Arrays.asList(array));
+
+            //Inserta el pasajero a la hash table
+            for (Passenger p : passengers){
+                hashtable.chainedHashInsert(p.getId(), p);
+            }
             fis.close();
         } else {
             File f = new File(folder);
@@ -58,5 +65,13 @@ public class PassengerList {
             }
             file.createNewFile();
         }
+    }
+
+    public static HashTable<String, Passenger> getHashtable() {
+        return hashtable;
+    }
+
+    public static void setHashtable(HashTable<String, Passenger> hashtable) {
+        PassengerList.hashtable = hashtable;
     }
 }

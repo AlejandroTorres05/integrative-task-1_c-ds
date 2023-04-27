@@ -1,5 +1,7 @@
 package model;
 
+import dataStructures.HashTable;
+import dataStructures.Node;
 import dataStructures.Stack;
 
 import java.io.IOException;
@@ -11,6 +13,8 @@ public class Controller {
     public static PassengerList passengerList = new PassengerList();
 
     public static Stack stack = new Stack();
+
+    public static HashTable hashTable = passengerList.getHashtable();
 
 
     public void addPassenger(String input) throws IOException {
@@ -24,6 +28,7 @@ public class Controller {
         passengerList.getPassengers().add(
                 new Passenger(data[0], data[1], data[2], Integer.parseInt(data[3]), data[4])
         );
+        addToStack(new Passenger(data[0], data[1], data[2], Integer.parseInt(data[3]), data[4]));
         passengerList.save();
     }
 
@@ -39,6 +44,8 @@ public class Controller {
         passengerList.getPassengers().add(
                 new PremiumPassenger(data[0], data[1], data[2], Integer.parseInt(data[3]), data[4], Integer.parseInt(data[5]), lvlPriority, cuality)
         );
+
+        //addPremiumToStack(new PremiumPassenger(data[0], data[1], data[2], Integer.parseInt(data[3]), data[4], Integer.parseInt(data[5]), lvlPriority, cuality));
         passengerList.save();
     }
 
@@ -57,4 +64,18 @@ public class Controller {
         }
         return priority;
     }
+
+    public void addPremiumToStack(PremiumPassenger passenger) {
+        stack.push(passenger);
+    }
+
+    public void addToStack(Passenger passenger) {
+        stack.push(passenger);
+    }
+
+    public String searchInHash(String key) throws IOException{
+        passengerList.load();
+        return hashTable.chainedHashSearch(key);
+    }
+
 }
