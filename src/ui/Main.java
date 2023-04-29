@@ -13,11 +13,12 @@ public class Main {
             character++;
         }
         priorityQueue.setArray(array);
-        Pair<Integer,String> [] array2 = priorityQueue.getArray();
-        Integer[] num = new Integer[array2.length];
-        for (int i = 0; i<num.length; i++){
-            num[i] = array2[i].getKey();
+        Integer[] expected = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19};
+        Pair<Integer,String> [] pairs = priorityQueue.heapSort();
+        Integer[] numbers = new Integer[pairs.length];
+        for (int i = 0; i<numbers.length; i++){
+            numbers[i] = pairs[i].getKey();
         }
-        System.out.println(Arrays.toString(num));
+        System.out.println(Arrays.toString(numbers));
     }
 }

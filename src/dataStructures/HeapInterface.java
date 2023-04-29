@@ -36,9 +36,6 @@ public interface HeapInterface <K extends Comparable<K>, V> {
     /**
      * This method organize the heap in ascending order
      * and can return an organized array
-     * @param array from Pair<K,V> class, is the Heap that
-     *              this method must become in an ordered
-     *              array
      * @return array from Pair<K,V> class and this array
      *              must be a sorted array
      * @Pre: There must be a Heap with the correct Heap structure
@@ -47,7 +44,7 @@ public interface HeapInterface <K extends Comparable<K>, V> {
      *              ascending form and this method can return
      *              the sorted array
      * */
-    Pair<K,V>[] heapSort(Pair<K,V>[] array);
+    Pair<K,V>[] heapSort();
 
     /**
      * This method returns the index of the father

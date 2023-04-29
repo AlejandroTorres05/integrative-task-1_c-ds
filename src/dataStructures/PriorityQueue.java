@@ -122,9 +122,6 @@ public class PriorityQueue<K extends Comparable<K>, V>
     /**
      * This method organize the heap in ascending order
      * and can return an organized array
-     * @param array from Pair<K,V> class, is the Heap that
-     *              this method must become in an ordered
-     *              array
      * @return array from Pair<K,V> class and this array
      *              must be a sorted array
      * @Pre: There must be a Heap with the correct Heap structure
@@ -134,16 +131,16 @@ public class PriorityQueue<K extends Comparable<K>, V>
      *              the sorted array
      * */
     @Override
-    public Pair<K,V>[] heapSort(Pair<K, V>[] array) {
+    public Pair<K,V>[] heapSort() {
         buildHeap(this.array);
         for (int i = this.heapSize; i >= 0; i--){
-            Pair<K,V> pair = array[0];
-            array[0] = array[i];
-            array[i] = pair;
-            maxHeapIfy(array, 0);
+            Pair<K,V> pair = this.array[0];
+            this.array[0] = this.array[i];
+            this.array[i] = pair;
+            this.heapSize--;
+            maxHeapIfy(this.array, 0);
         }
-        this.heapSize = -1;
-        return array;
+        return this.array;
     }
 
     /**
@@ -275,7 +272,6 @@ public class PriorityQueue<K extends Comparable<K>, V>
                     "Cannot insert elements because the Priority queue is at capacity"
             );
         }else {
-            this.heapSize++;
             this.array[this.heapSize] = element;
             increaseKey(this.heapSize, element.getKey());
             return true;
