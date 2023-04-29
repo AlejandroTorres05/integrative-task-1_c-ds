@@ -8,14 +8,28 @@ import java.util.Scanner;
 
 public class Main {
 
+    //Colors System
+    public static final String RESET = "\u001B[0m";
+    public static final String BOLD = "\u001B[1m";
+    public static final String UNDERLINE = "\u001B[4m";
+    public static final String BLUE = "\u001B[34m";
+
     public static Scanner sc = new Scanner(System.in);
 
     public static Controller controller = new Controller();
 
     public static void main(String[] args) throws IOException {
         int option = 0;
-        while (option != 4) {
-            System.out.println("Please select an option");
+        System.out.println(BOLD + BLUE + "WELCOME TO THE AIRPORT SYSTEM");
+        while (option != 6) {
+            System.out.println(BOLD + UNDERLINE + "PLEASE SELECT AN OPTION:" + RESET +
+                    BOLD + BLUE + "\n[1]" + RESET + " Add a common passenger" +
+                    BOLD + BLUE + "\n[2]" + RESET + " Add a premium passenger" +
+                    BOLD + BLUE + "\n[3]" + RESET + " Record boarding" +
+                    BOLD + BLUE + "\n[4]" + RESET + " See boarding order" +
+                    BOLD + BLUE + "\n[5]" + RESET + " See order of departure" +
+                    BOLD + BLUE + "\n[6]" + RESET + " Exit");
+
             option = sc.nextInt();
             sc.nextLine();
             switch (option) {
@@ -91,7 +105,7 @@ public class Main {
         System.out.println(controller.searchInHash(key));
     }
 
-    public static void viewQueue(){
+    public static void viewQueue() {
         System.out.println(controller.viewPriorityQueue());
     }
 }
