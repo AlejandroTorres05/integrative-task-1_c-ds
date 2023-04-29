@@ -47,9 +47,7 @@ public class Main {
         System.out.println("arrivalTime");
         int arrivalTime = sc.nextInt();
         sc.nextLine();
-        System.out.println("ticket");
-        String ticket = sc.nextLine();
-        String input = name + "++" + lastName + "++" + id + "++" + arrivalTime + "++" + ticket;
+        String input = name + "++" + lastName + "++" + id + "++" + arrivalTime;
         controller.addPassenger(input);
     }
 
@@ -64,8 +62,6 @@ public class Main {
         System.out.println("arrivalTime");
         int arrivalTime = sc.nextInt();
         sc.nextLine();
-        System.out.println("ticket");
-        String ticket = sc.nextLine();
         System.out.println("acumMiles");
         int acumMiles = sc.nextInt();
         System.out.println("cuality");
@@ -85,7 +81,7 @@ public class Main {
                 cuality = EspecialCuality.SICK;
                 break;
         }
-        String input = name + "++" + lastName + "++" + id + "++" + arrivalTime + "++" + ticket + "++" + acumMiles;
+        String input = name + "++" + lastName + "++" + id + "++" + arrivalTime + "++" + acumMiles;
         controller.addPremiumPassenger(input, cuality);
     }
 

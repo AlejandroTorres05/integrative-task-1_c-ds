@@ -1,25 +1,17 @@
 package model;
 
 public class PremiumPassenger extends Passenger {
-    private int lvlPriority;
-
     private int acumMiles;
 
     private EspecialCuality cuality;
 
-    public PremiumPassenger(String name, String lastName, String id, int arrivalTime, String tikeckNum, int lvlPriority, int acumMiles, EspecialCuality cuality) {
-        super(name, lastName, id, arrivalTime, tikeckNum);
-        this.lvlPriority = lvlPriority;
+    private int pPriority;
+
+    public PremiumPassenger(String name, String lastName, String id, int arrivalTime, int acumMiles, EspecialCuality cuality) {
+        super(name, lastName, id, arrivalTime);
         this.acumMiles = acumMiles;
         this.cuality = cuality;
-    }
-
-    public int getLvlPriority() {
-        return lvlPriority;
-    }
-
-    public void setLvlPriority(int lvlPriority) {
-        this.lvlPriority = lvlPriority;
+        this.pPriority = calculatePriority(cuality);
     }
 
     public int getAcumMiles() {
@@ -36,5 +28,24 @@ public class PremiumPassenger extends Passenger {
 
     public void setCuality(EspecialCuality cuality) {
         this.cuality = cuality;
+    }
+
+    public int calculatePriority(EspecialCuality cuality) {
+        int cualityPriority = cualityPriority(cuality);
+        return cualityPriority + acumMiles;
+    }
+
+    public int cualityPriority(EspecialCuality cuality) {
+        if (cuality == EspecialCuality.THIRDAGE) {
+            return 40;
+        } else if (cuality == EspecialCuality.SICK) {
+            return 20;
+        } else if (cuality == EspecialCuality.PREGNANT) {
+            return 30;
+        } else if (cuality == EspecialCuality.CHILD) {
+            return 10;
+        } else {
+            return 0;
+        }
     }
 }

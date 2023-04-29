@@ -5,15 +5,14 @@ public class Passenger {
     private String lastName;
     private String id;
     private int arrivalTime;
+    private int priority;
 
-    private String tikeckNum;
-
-    public Passenger(String name, String lastName, String id, int arrivalTime, String tikeckNum) {
+    public Passenger(String name, String lastName, String id, int arrivalTime) {
         this.name = name;
         this.lastName = lastName;
         this.id = id;
         this.arrivalTime = arrivalTime;
-        this.tikeckNum = tikeckNum;
+        this.priority = calculatePriority(arrivalTime);
     }
 
     public String getName() {
@@ -48,11 +47,15 @@ public class Passenger {
         this.arrivalTime = arrivalTime;
     }
 
-    public String getTikeckNum() {
-        return tikeckNum;
+    public int getPriority() {
+        return priority;
     }
 
-    public void setTikeckNum(String tikeckNum) {
-        this.tikeckNum = tikeckNum;
+    public void setPriority(int priority) {
+        this.priority = priority;
+    }
+
+    public int calculatePriority(int arrivalTime){
+        return arrivalTime*2;
     }
 }

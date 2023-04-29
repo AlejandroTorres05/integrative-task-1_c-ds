@@ -27,9 +27,8 @@ public class Controller {
         String[] data = input.split("\\+\\+");
         System.out.println(Arrays.toString(data));
         passengerList.getPassengers().add(
-                new Passenger(data[0], data[1], data[2], Integer.parseInt(data[3]), data[4])
+                new Passenger(data[0], data[1], data[2], Integer.parseInt(data[3]))
         );
-        addToStack(new Passenger(data[0], data[1], data[2], Integer.parseInt(data[3]), data[4]));
         passengerList.save();
     }
 
@@ -41,39 +40,11 @@ public class Controller {
         }
         String[] data = input.split("\\+\\+");
         System.out.println(Arrays.toString(data));
-        int lvlPriority = priorityCal(cuality);
         passengerList.getPassengers().add(
-                new PremiumPassenger(data[0], data[1], data[2], Integer.parseInt(data[3]), data[4], Integer.parseInt(data[5]), lvlPriority, cuality)
+                new PremiumPassenger(data[0], data[1], data[2], Integer.parseInt(data[3]), Integer.parseInt(data[4]), cuality )
         );
-
-        //addPremiumToStack(new PremiumPassenger(data[0], data[1], data[2], Integer.parseInt(data[3]), data[4], Integer.parseInt(data[5]), lvlPriority, cuality));
         passengerList.save();
     }
-
-    public int priorityCal(EspecialCuality cuality) {
-        int priority = 0;
-        if (cuality == EspecialCuality.THIRDAGE) {
-            priority = 40;
-        } else if (cuality == EspecialCuality.SICK) {
-            priority = 20;
-        } else if (cuality == EspecialCuality.PREGNANT) {
-            priority = 30;
-        } else if (cuality == EspecialCuality.CHILD) {
-            priority = 10;
-        } else {
-            priority = 0;
-        }
-        return priority;
-    }
-
-    public void addPremiumToStack(PremiumPassenger passenger) {
-        stack.push(passenger);
-    }
-
-    public void addToStack(Passenger passenger) {
-        stack.push(passenger);
-    }
-
     public String searchInHash(String key) throws IOException {
         String msg = "The passenger is not registered";
         passengerList.load();
@@ -81,7 +52,6 @@ public class Controller {
             priorityQueue.insert(new Pair(key, hashTable.getValue(key)));
             msg = "Passenger successfully registered";
             Pair[] arr = priorityQueue.getArray();
-
             System.out.println(arr[0].getKey());
             return msg;
         }
