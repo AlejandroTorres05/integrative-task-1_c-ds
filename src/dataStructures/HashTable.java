@@ -59,22 +59,24 @@ public class HashTable<K, T> implements HashInterface<K, T> {
         size++;
     }
 
-    public String chainedHashSearch(K key) {
+    public boolean chainedHashSearch(K key) {
         int i = hashCode(key);
         return chainedHashSearch(key, list[i]);
     }
 
-    private String chainedHashSearch(K key, HashNode<K, T> current) {
+    private boolean chainedHashSearch(K key, HashNode<K, T> current) {
         String msg = "The key is not in the data base";
         if (current == null) {
-            return msg;
+            System.out.println(msg);
+            return false;
         }
         if (current.getKey().equals(key)) {
             Passenger passenger = (Passenger) current.getValue();
             msg = "Nombre: " + passenger.getName() + "\n" +
                     "Apellido: " + passenger.getLastName() + "\n" +
                     "ID: " + passenger.getId();
-            return msg;
+            System.out.println(msg);
+            return true;
         }
 
         return chainedHashSearch(key, current.getNext());

@@ -26,7 +26,10 @@ public class Main {
                     addPremiumPassenger();
                     break;
                 case 3:
-                    System.out.println();
+                    registerPassenger();
+                    break;
+                case 4:
+                    viewQueue();
                     break;
             }
         }
@@ -84,5 +87,15 @@ public class Main {
         }
         String input = name + "++" + lastName + "++" + id + "++" + arrivalTime + "++" + ticket + "++" + acumMiles;
         controller.addPremiumPassenger(input, cuality);
+    }
+
+    public static void registerPassenger() throws IOException {
+        System.out.println("Please input passenger id");
+        String key = sc.nextLine();
+        System.out.println(controller.searchInHash(key));
+    }
+
+    public static void viewQueue(){
+        System.out.println(controller.viewPriorityQueue());
     }
 }

@@ -1,10 +1,9 @@
 package model;
 
-import dataStructures.HashTable;
-import dataStructures.Node;
-import dataStructures.Stack;
+import dataStructures.*;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 
@@ -15,6 +14,8 @@ public class Controller {
     public static Stack stack = new Stack();
 
     public static HashTable hashTable = passengerList.getHashtable();
+
+    public static PriorityQueue priorityQueue = new PriorityQueue<>(32);
 
 
     public void addPassenger(String input) throws IOException {
@@ -73,9 +74,28 @@ public class Controller {
         stack.push(passenger);
     }
 
-    public String searchInHash(String key) throws IOException{
+    public String searchInHash(String key) throws IOException {
+        String msg = "The passenger is not registered";
         passengerList.load();
-        return hashTable.chainedHashSearch(key);
+        if (hashTable.chainedHashSearch(key) == true) {
+            priorityQueue.insert(new Pair(key, hashTable.getValue(key)));
+            msg = "Passenger successfully registered";
+            Pair[] arr = priorityQueue.getArray();
+
+            System.out.println(arr[0].getKey());
+            return msg;
+        }
+        return msg;
     }
 
+    public String viewPriorityQueue(){
+        String msg = "";
+        Pair[] arr = priorityQueue.getArray();
+        for (int i = 0; i <= arr.length-1; i ++){
+            if (arr[i] != null){
+                msg += arr[i].getKey();
+            }
+        }
+        return msg;
+    }
 }
