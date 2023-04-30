@@ -26,6 +26,13 @@ public class PassengerList {
         this.passengers = passengers;
     }
 
+    /**
+     * This method saves the information passenger database
+     * added in a txt
+     * @Pre: the path is correct
+     * @Post: save the information
+     * */
+
     public void save() throws IOException {
         File file = new File(path);
         FileOutputStream fos = new FileOutputStream(file);
@@ -39,6 +46,13 @@ public class PassengerList {
         fos.close();
     }
 
+    /**
+     * This method load the information passenger database
+     * added in a txt, and added this information in the Hash table
+     * for better accessibility
+     * @Pre: the path is correct
+     * @Post: load the information
+     * */
     public void load() throws IOException {
         File file = new File(path);
         if (file.exists()) {
@@ -52,8 +66,7 @@ public class PassengerList {
             Gson gson = new Gson();
             Passenger[] array = gson.fromJson(content, Passenger[].class);
             passengers.addAll(Arrays.asList(array));
-
-            //Inserta el pasajero a la hash table
+            //Insert the passenger in the HashTable
             for (Passenger p : passengers){
                 hashtable.chainedHashInsert(p.getId(), p);
             }
