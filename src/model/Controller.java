@@ -76,13 +76,15 @@ public class Controller {
     public String searchInHash(String key) throws IOException {
         String msg = "The passenger is not registered";
         passengerList.load();
-        Passenger passenger = (Passenger) hashTable.chainedHashSearch(key).getValue();
-        if (passenger.getId().equals(key)) {
-            priorityQueue.insert(new Pair(passenger.getPriority(), passenger));
-            msg = "Passenger successfully registered";
-            Pair[] arr = priorityQueue.getArray();
-            System.out.println(arr[0].getKey());
-            return msg;
+        if (hashTable.chainedHashSearch(key) != null){
+            Passenger passenger = (Passenger) hashTable.chainedHashSearch(key).getValue();
+            if (passenger.getId().equals(key)) {
+                priorityQueue.insert(new Pair(passenger.getPriority(), passenger));
+                msg = "Passenger successfully registered";
+                Pair[] arr = priorityQueue.getArray();
+                System.out.println(arr[0].getKey());
+                return msg;
+            }
         }
         return msg;
     }
