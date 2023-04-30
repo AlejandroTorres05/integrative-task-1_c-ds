@@ -9,7 +9,7 @@ import dataStructures.HashTable;
 
 public class PassengerList {
 
-    public static HashTable<String, Passenger> hashtable = new HashTable<>();
+    public static HashTable<String, Passenger> hashtable = new HashTable<>(36);
     static String folder = "dataBase";
     static String path = "dataBase/passengers.txt";
     ArrayList<Passenger> passengers;

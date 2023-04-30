@@ -15,7 +15,7 @@ public class Controller {
 
     public static HashTable hashTable = passengerList.getHashtable();
 
-    public static PriorityQueue priorityQueue = new PriorityQueue<>(32);
+    public static PriorityQueue priorityQueue = new PriorityQueue<>(36);
 
 
     public void addPassenger(String input) throws IOException {

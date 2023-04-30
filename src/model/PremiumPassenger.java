@@ -11,7 +11,7 @@ public class PremiumPassenger extends Passenger {
         super(name, lastName, id, arrivalTime);
         this.acumMiles = acumMiles;
         this.cuality = cuality;
-        this.pPriority = calculatePriority(cuality);
+        this.pPriority = 200 + calculatePriority(cuality);
     }
 
     public int getAcumMiles() {
