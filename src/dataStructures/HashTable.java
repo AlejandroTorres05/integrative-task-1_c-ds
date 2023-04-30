@@ -71,11 +71,6 @@ public class HashTable<K, T> implements HashInterface<K, T> {
             return null;
         }
         if (current.getKey().equals(key)) {
-            Passenger passenger = (Passenger) current.getValue();
-            msg = "Nombre: " + passenger.getName() + "\n" +
-                    "Apellido: " + passenger.getLastName() + "\n" +
-                    "ID: " + passenger.getId();
-            System.out.println(msg);
             return current;
         }
 
