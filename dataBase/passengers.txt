@@ -1,1 +1,1 @@
-[{"acumMiles":2,"cuality":"CHILD","pPriority":12,"name":"alejo","lastName":"amu","id":"11","arrivalTime":1,"priority":2}]
+[{"name":"alejo","lastName":"amu","id":"11","arrivalTime":1,"priority":2},{"name":"alejo","lastName":"amu","id":"110","arrivalTime":10,"priority":20},{"acumMiles":110,"cuality":"NONE","pPriority":110,"name":"juan ","lastName":"castro","id":"1109661527","arrivalTime":120,"priority":240}]

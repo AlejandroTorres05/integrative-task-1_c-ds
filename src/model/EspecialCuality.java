@@ -1,5 +1,5 @@
 package model;
 
 public enum EspecialCuality {
-    THIRDAGE, PREGNANT, CHILD, SICK
+    THIRDAGE, PREGNANT, CHILD, SICK, NONE
 }

@@ -51,14 +51,14 @@ public class Main {
 
 
     private static void addPassenger() throws IOException {
-        System.out.println("Please enter the data");
-        System.out.println("name");
+        System.out.println(BOLD + UNDERLINE + BLUE + "COMMON PASSENGER" + RESET);
+        System.out.println("Please enter the passenger's name");
         String name = sc.nextLine();
-        System.out.println("last name");
+        System.out.println("please enter the passenger's last name");
         String lastName = sc.nextLine();
-        System.out.println("Id");
+        System.out.println("please enter the passenger's ID");
         String id = sc.nextLine();
-        System.out.println("arrivalTime");
+        System.out.println("Please enter the passenger's arrival time in minutes.");
         int arrivalTime = sc.nextInt();
         sc.nextLine();
         String input = name + "++" + lastName + "++" + id + "++" + arrivalTime;
@@ -66,21 +66,26 @@ public class Main {
     }
 
     private static void addPremiumPassenger() throws IOException {
-        System.out.println("Please enter the data");
-        System.out.println("name");
+        System.out.println(BOLD + UNDERLINE + BLUE + "PREMIUM PASSENGER" + RESET);
+        System.out.println("Please enter the passenger's name");
         String name = sc.nextLine();
-        System.out.println("last name");
+        System.out.println("please enter the passenger's last name");
         String lastName = sc.nextLine();
-        System.out.println("Id");
+        System.out.println("please enter the passenger's ID");
         String id = sc.nextLine();
-        System.out.println("arrivalTime");
+        System.out.println("Please enter the passenger's arrival time in minutes.");
         int arrivalTime = sc.nextInt();
         sc.nextLine();
-        System.out.println("acumMiles");
+        System.out.println("Please enter the passenger's mileage accruals");
         int acumMiles = sc.nextInt();
-        System.out.println("cuality");
+        System.out.println("Please enter any special quality");
+        System.out.println("\n[1]" + " Third Age" +
+                "\n[2]" + " Pregnant" +
+                "\n[3]" + " Child" +
+                "\n[4]" + " Sick" +
+                "\n[5]" + " None");
         int cualOp = sc.nextInt();
-        EspecialCuality cuality = null;
+        EspecialCuality cuality;
         switch (cualOp) {
             case 1:
                 cuality = EspecialCuality.THIRDAGE;
@@ -94,13 +99,20 @@ public class Main {
             case 4:
                 cuality = EspecialCuality.SICK;
                 break;
+            case 5:
+                cuality = EspecialCuality.NONE;
+                break;
+            default:
+                System.out.println("None is selected by default");
+                cuality = EspecialCuality.NONE;
+                break;
         }
         String input = name + "++" + lastName + "++" + id + "++" + arrivalTime + "++" + acumMiles;
         controller.addPremiumPassenger(input, cuality);
     }
 
     public static void registerPassenger() throws IOException {
-        System.out.println("Please input passenger id");
+        System.out.println("Please enter the passenger's id");
         String key = sc.nextLine();
         System.out.println(controller.searchInHash(key));
     }
