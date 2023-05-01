@@ -29,13 +29,36 @@ public class PlaneTest {
         plane.addPassenger(new Passenger("mariana", "daniels", "669",15));
     }
 
+    /**
+     * This class just needs a test to
+     * check all of its functionalities
+     * because all of its methods are
+     * very related between themselves. In
+     * addition to that, is important to
+     * highlight that to check some method
+     * we must use the rest of them
+     * */
     @Test
-    public void addPassengerMethodAddThePassengersCorrectlyTest(){
+    public void planeClassFoundTest(){
         setupStage1();
-        String[] order = {"mariana", "pablo", "david", "juan", "laura", "sebastian", "isabela", "lucia", "daniela", "ashli", "daniela", "daniel", "kevin", "alex", "alejandro"};
-        int index = 0;
-        while (!plane.isEmpty()){
-            assertEquals(order[index], );
-        }
+        String output = "mariana daniels 669" + "\n"
+                    + "pablo lopez 559" + "\n"
+                    + "david aguilar 449" + "\n"
+                    + "juan ruiz 339" + "\n"
+                    + "laura villa 229" + "\n"
+                    + "sebastian soto 119" + "\n"
+                    + "isabela arias 999" + "\n"
+                    + "lucia petro 888" + "\n"
+                    + "daniela montes 777" + "\n"
+                    + "ashli perez 661" + "\n"
+                    + "daniela acosta 555" + "\n"
+                    + "daniel suarez 444" + "\n"
+                    + "kevin flores 333" + "\n"
+                    + "alex castillo 222" + "\n"
+                    + "alejandro torres 111" + "\n";
+
+        String result = plane.exitPassengers();
+
+        assertEquals(output, result);
     }
 }

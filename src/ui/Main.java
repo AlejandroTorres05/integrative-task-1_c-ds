@@ -138,5 +138,6 @@ public class Main {
 
     public static void getOutOrder(){
         System.out.println(controller.getOutOrder());
+        atTheQueue = 0;
     }
 }

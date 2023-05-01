@@ -71,25 +71,21 @@ public class Plane {
      * */
     private String takeOutPassenger (){
         String message = "";
+        Passenger passenger;
         try {
-            message += this.group1.pop().getName() + "\n";
+            passenger = this.group1.pop();
+            message += passenger.getName() + " " + passenger.getLastName() + " " + passenger.getId() + "\n";
 
         } catch (EmptyStackException ex){
 
         }
         try {
-            message += this.group2.pop().getName() + "\n";
+            passenger = this.group2.pop();
+            message += passenger.getName() + " " + passenger.getLastName() + " " + passenger.getId() + "\n";
         }catch (EmptyStackException ex){
 
         }
         return message;
     }
 
-    public boolean isEmpty (){
-        if (this.group1.isEmpty() && this.group2.isEmpty()){
-            return true;
-        } else {
-            return false;
-        }
-    }
 }
