@@ -17,6 +17,8 @@ public class Controller {
 
     public static PriorityQueue priorityQueue = new PriorityQueue<>(36);
 
+    public static Plane plane = new Plane();
+
     /**
      * This method adds a common passenger to database txt, with all
      * passenger's attributes. Receive a String with all characteristics
@@ -96,15 +98,27 @@ public class Controller {
      * @Pre: That someone's entry has been registered
      * @Post: Show the order of entry
      */
-    public String viewPriorityQueue() {
+    public String getOnOrder() { //name lastname id
         String msg = "ORDEN DE INGRESO: " + "\n";
-        Pair[] arr = priorityQueue.getArray();
-        for (int i = 0; i <= arr.length - 1; i++) {
-            if (arr[i] != null) {
-                Passenger passenger = (Passenger) arr[i].getValue();
-                msg += passenger.getName() + " " + passenger.getLastName() + " " + passenger.getId() + "\n";
-            }
+        Passenger passenger;
+        while (priorityQueue.getHeapSize() != -1){
+            passenger =  (Passenger)priorityQueue.extractMaximum().getValue();
+            msg += passenger.getName() + " " + passenger.getLastName() + " " + passenger.getId() + "\n";
+            plane.addPassenger(passenger);
         }
         return msg;
+    }
+
+    /**
+     * This method shows the order of get out
+     * of the plane.
+     *
+     * @Pre there must be passengers at the plane
+     * @Post the plane will be empty at the end
+     * */
+    public String getOutOrder(){
+        String message = "ORDEN DE SALIDA: " + "\n";
+        message += plane.exitPassengers();
+        return message;
     }
 }

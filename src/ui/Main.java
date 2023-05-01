@@ -13,6 +13,7 @@ public class Main {
     public static final String BOLD = "\u001B[1m";
     public static final String UNDERLINE = "\u001B[4m";
     public static final String BLUE = "\u001B[34m";
+    public static int atTheQueue = 0;
 
     public static Scanner sc = new Scanner(System.in);
 
@@ -35,15 +36,28 @@ public class Main {
             switch (option) {
                 case 1:
                     addPassenger();
+                    atTheQueue++;
                     break;
                 case 2:
                     addPremiumPassenger();
+                    atTheQueue++;
                     break;
                 case 3:
                     registerPassenger();
                     break;
                 case 4:
-                    viewQueue();
+                    if(atTheQueue < 36){
+                        System.out.println("There are not enough passengers yet");
+                    }else{
+                        boardingOrder();
+                    }
+                    break;
+                case 5:
+                    if(atTheQueue < 36){
+                        System.out.println("There are not enough passengers yet");
+                    }else{
+                        getOutOrder();
+                    }
                     break;
             }
         }
@@ -117,7 +131,12 @@ public class Main {
         System.out.println(controller.searchInHash(key));
     }
 
-    public static void viewQueue() {
-        System.out.println(controller.viewPriorityQueue());
+
+    public static void boardingOrder(){
+        System.out.println(controller.getOnOrder());
+    }
+
+    public static void getOutOrder(){
+        System.out.println(controller.getOutOrder());
     }
 }
