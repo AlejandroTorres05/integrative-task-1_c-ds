@@ -36,14 +36,13 @@ public class Main {
             switch (option) {
                 case 1:
                     addPassenger();
-                    atTheQueue++;
                     break;
                 case 2:
                     addPremiumPassenger();
-                    atTheQueue++;
                     break;
                 case 3:
                     registerPassenger();
+                    atTheQueue++;
                     break;
                 case 4:
                     if(atTheQueue < 36){
